@@ -6,17 +6,16 @@ CITY_CSV = {'chicago': 'chicago.csv',
              'new york City': 'new_york_city.csv',
              'washington': 'washington.csv'}
 
-def check_data_entry(prompt, valid_entries):
+def get_filters():
     """
-    Function that asks the user to input data and verifies if it's valid.
-    This simplifies the get_filters() function, where we need to ask the user for three inputs.
-    Args:
-        (str) prompt - message to show to the user
-        (list) valid_entries - list of accepted strings
-        Returns:
-        (str) user_input - user's valid input
-    """
+    Asks user to specify a city, month, and day to analyze.
 
+    Returns:
+        (str) city - name of the city to analyze
+        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    """
+def check_data_entry(prompt, valid_entries):
     try:
         while True:
             user_input = input(prompt).lower()
@@ -46,7 +45,6 @@ def get_filters():
 
     print('-'*40)
     return city, month, day
-
 
 
 def load_data(city, month, day):
